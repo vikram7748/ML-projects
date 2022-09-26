@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Responsive HTML5 Page Layout Template</title>
+    <meta name="description" content="Simple HTML5 Page layout template with header, footer, sidebar etc.">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/script.js"></script>
+</head>
+
+<body>
+	<header>
+		<div id="logo"><img src="../static/scorpio-car-png.png">prnka&nbsp;cars</div>
+		<nav>  
+			<ul>
+				<li><a href="{{url_for('index')}}">Home</a>
+				<li><a href="{{url_for('showroom')}}">showroom</a>
+				<li><a href="{{url_for('buy')}}">buy</a>
+				<li><a href="{{url_for('sell')}}">sell</a>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<strong>u can buy car here</strong>
+	</section>
+	<section>
+	    <form method = "POST" action ="{{url_for('create')}}">
+		     <label for="uname">name</label>
+			 <input type="text" name="uname" id="uname"/><br><br>
+			 
+			 <label for="cars">car</label>
+			 <input type="text" name="cars" id="cars"/><br><br>
+			 
+			 <label for="contacts">contact_no</label>
+			 <input type="number" name="contacts" id="contacts"/><br><br>
+			 
+			 <input type="submit" name="buy car" value="Buy car"/>
+	    </form>	 
+	</section>
+	<section id="pageContent">
+		<main role="main">
+		<head>
+		     <style>
+			 table,th,td{
+			  border: 1px solid black;
+			 }
+		     </style>
+		</head>
+	
+       <table border="1" width="400">
+      <tr>
+          <th>name</th>
+          <th>car</th>
+          <th>contact</th>
+      </tr>
+      {% for row in userdata %}
+      <tr align="center">
+          <td>{{row[0]}} </td>
+          <td>{{row[1]}} </td>
+          <td>{{row[2]}} </td>
+      </tr>
+	  
+      {% endfor %}
+
+      </table>
+		</main>
+		<aside>
+			<div>Sidebar 1</div>
+			<div>Sidebar 2</div>
+			<div>Sidebar 3</div>
+		</aside>
+	</section>
+	<footer>
+	</footer>
+
+
+</body>
+
+</html>
